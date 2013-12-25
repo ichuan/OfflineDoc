@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <style>
+      body {
+        font-family: Tahoma;
+      }
+      ul {
+        list-style: none;
+        margin: 0 40px;
+        padding: 0;
+      }
+      li {
+        margin: 0 16px;
+        line-height: 40px;
+        float: left;
+      }
+      a img{
+        vertical-align: middle;
+        margin-right: 2px;
+        opacity: .7
+      }
+      a, a:visited {
+        text-decoration: none;
+        display: block;
+        padding: 4px 10px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:hover img {
+        opacity: 1;
+      }
+    </style>
+    <title>Offline Documents</title>
+  </head>
+  <body>
+    <h2>Offline Documents</h2>
+    <p>Use `Ctrl+F` to search</p>
+    <ul>
+      {% for m in modules %}
+      <li>
+        <a href="{{ m }}/">
+          <img src="{{ m }}/favicon.png" onerror="this.src='favicon.png'"/>{{ m }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

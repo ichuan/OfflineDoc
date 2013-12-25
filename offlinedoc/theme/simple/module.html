@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <meta charset='utf-8'>
+  <head>
+    {% if versions|length == 1 %}
+    <meta http-equiv="refresh" content="0; url={{ latest.entry }}" />
+    {% endif %}
+    <style>
+      body {
+        font-family: Tahoma;
+      }
+    </style>
+    <title>{{ name }}</title>
+  </head>
+  <body>
+    <h2>Offline Documents for {{ name }}</h2>
+    <strong><a href="{{ latest.entry }}">Latest ({{ latest.version }})</a></strong>
+    <ul>
+      {% for v in versions %}
+      <li>
+        <a href="{{ v.entry }}">
+          {{ v.version }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
