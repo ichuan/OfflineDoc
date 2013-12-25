@@ -7,12 +7,12 @@ from distutils.core import setup
 
 setup(
   name='OfflineDoc',
-  version='0.0.5',
+  version='0.0.7',
   author='yc',
   author_email='iyanchuan@gmail.com',
   packages=['offlinedoc', 'offlinedoc.test', 'offlinedoc.module'],
   package_data={'offlinedoc': [
-    'layout/*.yaml', 'layout/module/.*', 'layout/public/.*', 'layout/source/.*',
+    'layout/*.yaml', 'layout/module/*.py', 'layout/public/.*', 'layout/source/.*',
     'layout/theme/.*', 'theme/*/*',
   ]}, # see http://stackoverflow.com/a/7414693/265989
   scripts=['bin/od.py'],
