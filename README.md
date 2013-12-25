@@ -1,4 +1,4 @@
-# OfflineDoc: 离线文档生成器
+OfflineDoc: 离线文档生成器
 
 ## 由来
 
@@ -78,18 +78,18 @@ OfflineDoc 支持的项目类型有：
 
 1. 选择一个大分区目录用来存放离线文档，比如 `/var/data/od`，则使用 `od.py new /var/data/od` 初始化之：
 
-      $od.py new /var/data/od
-      Project created, here's an example nginx config:
+        $od.py new /var/data/od
+        Project created, here's an example nginx config:
 
-        server {
-          listen 80;
-          server_name localhost.doc;
-          access_log off;
-          error_log /dev/null;
-          root /var/data/od/public;
-          location = /index.html { expires epoch; }
-          location ~ ^/[^\/]+/index.html$ { expires epoch; }
-        }
+          server {
+            listen 80;
+            server_name localhost.doc;
+            access_log off;
+            error_log /dev/null;
+            root /var/data/od/public;
+            location = /index.html { expires epoch; }
+            location ~ ^/[^\/]+/index.html$ { expires epoch; }
+          }
 
     会显示一个 nginx 配置示例，把这块加入 nginx 配置后，就可以网页浏览生成好的离线文档了。当然需要安装 nginx，不过 OfflineDoc 也有自带一个小 http 服务器供文档浏览。
 2. github 认证：`od.py auth /var/data/od`。由于部分内置项目托管在 github 上，OfflineDoc 有用到 github 的 api 接口，所以需要在该数据目录中保存一个 github 账号信息。可以花一两分钟去创建一个 github 账号。
