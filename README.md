@@ -123,3 +123,4 @@ OfflineDoc 支持的项目类型有：
 3. 使用，指出遇到的 bug
 4. 扩展开发文档
 5. 单元测试
+6. 各项目（module）独立的环境（virtualenv, nvm, rvm）
