@@ -7,7 +7,7 @@ from distutils.core import setup
 
 setup(
   name='OfflineDoc',
-  version='0.0.8',
+  version='0.0.9',
   author='yc',
   author_email='iyanchuan@gmail.com',
   packages=['offlinedoc', 'offlinedoc.test', 'offlinedoc.module'],
