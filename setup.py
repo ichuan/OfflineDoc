@@ -19,7 +19,7 @@ setup(
   url='https://github.com/ichuan/OfflineDoc',
   license='LICENSE.txt',
   description='Offline documents generating tool',
-  long_description=open('README.txt').read(),
+  long_description=open('README.md').read(),
   install_requires=[
     'Jinja2==2.6',
     'PyYAML==3.10',
