@@ -105,7 +105,7 @@ def cmd_auth(path=None):
   password = raw_input('Enter github password: ')
   if user and password:
     od.config['github_auth'] = base64.b64encode('%s:%s' % (user, password))
-    od.dump_config_file()
+    od.save_config()
     print 'Auth saved'
   else:
     print 'Invalid inputs'
