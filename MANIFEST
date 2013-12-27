@@ -36,6 +36,7 @@ offlinedoc/module/mongoengine.py
 offlinedoc/module/nodejs.py
 offlinedoc/module/pymongo.py
 offlinedoc/module/python.py
+offlinedoc/module/redis.py
 offlinedoc/module/sed.py
 offlinedoc/module/underscore.py
 offlinedoc/module/understanding-json-schema.py
