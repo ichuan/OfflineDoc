@@ -17,7 +17,9 @@ class Module(GitModule):
   def entry(self, version):
     if version < Version('2.0.0'):
       return 'docs/index.html'
-    return 'index.html'
+    elif version < Version('3.1.0'):
+      return 'index.html'
+    return '_index/index.html'
 
   def post_update(self, version, ret=None):
     '''
@@ -32,4 +34,6 @@ class Module(GitModule):
       self.shell('jekyll build')
       self.shell("sed -i '/platform.twitter.com/d' _gh_pages/index.html")
       self.shell("sed -i '/platform.twitter.com/d' _gh_pages/*/*.html")
+      if version >= Version('3.1.0'):
+        self.shell('mkdir _gh_pages/_index && cp _gh_pages/index.html _gh_pages/_index')
       return os.path.join(os.getcwd(), '_gh_pages')
