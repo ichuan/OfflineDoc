@@ -32,5 +32,8 @@ class Module(GitModule):
     self.pushd('docs')
     self.logger.info('Running sphinx-building ...')
     self.shell('make clean html')
+    self.shell(r'find _build/html/ -name "*.html" -exec '
+                'sed -i "/\/\/fonts.googleapis.com/d" '
+                '{} \;')
     self.popd()
     return os.path.join(os.getcwd(), 'docs/_build/html/')
