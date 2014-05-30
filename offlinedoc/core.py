@@ -126,7 +126,7 @@ class OfflineDoc(object):
             self.config['versions'][key] = attrs
             self.config['last_update'] = now()
             self.save_config()
-    self.generate_index(last_update)
+    self.generate_index()
     self.logger.info('All modules updated')
 
   def generate_index(self):
