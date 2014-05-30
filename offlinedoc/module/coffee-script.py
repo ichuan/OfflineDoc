@@ -21,7 +21,7 @@ class Module(GitModule):
   # 以什么做为版本标识，releases 或 tags（默认为 releases）
   version_by = 'tags'
   # 项目地址（可以 git clone 的地址）
-  url = 'https://github.com/jashkenas/coffee-script'
+  url = 'https://github.com/jashkenas/coffeescript'
   # 版本类型
   #   normal: 递增，保留所有版本（例如：bootstrap）
   #   latest: 递增，只保留最新版本（例如：jquery）
