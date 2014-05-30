@@ -44,7 +44,7 @@ class Module(GitModule):
     当前已经在 git clone 出来的代码目录中了
     '''
     self.logger.info('Installing npm & bower modules ...')
-    self.shell('npm install && bower install')
+    self.shell('npm cache clean; npm install && bower install')
     self.logger.info('Runnnig grunt packaging ...')
     self.shell('grunt package')
     return os.getcwd()

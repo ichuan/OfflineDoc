@@ -2,12 +2,13 @@
 # coding: utf-8
 # yc@2013/05/10
 
-import os, logging, yaml, sys, imp, glob
+import os, logging, yaml, sys, imp, glob, datetime
 from module._base import Version
 from jinja2 import Environment, FileSystemLoader
 
 
 OD_DIR = os.path.dirname(os.path.abspath(__file__))
+now = datetime.datetime.utcnow
 
 class OfflineDoc(object):
   '''
@@ -123,8 +124,9 @@ class OfflineDoc(object):
           attrs = obj.do_update(ver)
           if attrs:
             self.config['versions'][key] = attrs
+            self.config['last_update'] = now()
             self.save_config()
-    self.generate_index()
+    self.generate_index(last_update)
     self.logger.info('All modules updated')
 
   def generate_index(self):
@@ -135,5 +137,6 @@ class OfflineDoc(object):
     modules = self.load_modules().keys()
     for i in modules:
       self.get_module(i).generate_index()
-    html = tpl_index.render({'modules': modules})
+    last_update = self.config.get('last_update', now())
+    html = tpl_index.render({'modules': modules, 'last_update': last_update})
     open(os.path.join(self.data_dir, 'public', 'index.html'), 'w+').write(html)

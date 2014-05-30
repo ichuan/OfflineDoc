@@ -20,7 +20,7 @@ class Module(GitModule):
     返回最终 html 文档的路径
     '''
     self.logger.info('Running npm install ...')
-    self.shell('npm install')
+    self.shell('npm cache clean; npm install')
     self.logger.info('Running grunt build ...')
     if version < Version('0.3.0'):
       self.shell('grunt -- build html2js site')

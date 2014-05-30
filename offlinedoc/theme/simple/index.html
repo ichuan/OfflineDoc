@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <style>
       body {
-        font-family: Tahoma;
+        font: 16px Helvetica, arial, freesans, clean, sans-serif;
       }
       ul {
         list-style: none;
@@ -26,11 +26,17 @@
         display: block;
         padding: 4px 10px;
       }
-      a:hover {
-        text-decoration: underline;
-      }
-      a:hover img {
-        opacity: 1;
+      a:hover { text-decoration: underline; }
+      a:hover img { opacity: 1; }
+      .footer {
+        clear: both;
+        font: 12px "Ubuntu", Tahoma;
+        color: gray;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 20px;
       }
     </style>
     <title>Offline Documents</title>
@@ -42,10 +48,11 @@
       {% for m in modules %}
       <li>
         <a href="{{ m }}/">
-          <img src="{{ m }}/favicon.png" onerror="this.src='favicon.png'"/>{{ m }}
+          <img src="{{ m }}/favicon.png">{{ m }}
         </a>
       </li>
       {% endfor %}
     </ul>
+    <p class="footer">Last Update: {{ last_update.strftime('%Y/%m/%d %H:%M:%S UTC') }}</p>
   </body>
 </html>
