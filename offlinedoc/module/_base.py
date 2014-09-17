@@ -9,6 +9,7 @@ from itertools import izip_longest
 from contextlib import contextmanager
 
 RE_GITHUB_URL = re.compile(r'https?://github.com/(?P<user>[^/]+)/(?P<repo>[^/]+)')
+RE_SLUG = re.compile(r'^([\d\.]+)(.*)$')
 
 
 class Version(str):
@@ -25,7 +26,25 @@ class Version(str):
 
   def __cmp__(self, other):
     if not hasattr(self, '_vers') or not hasattr(other, '_vers'):
-      return cmp(str(self), str(other))
+      # slug match
+      try:
+        print 'MMM'
+        a1, b1 = re.match(RE_SLUG, self).groups()
+        a2, b2 = re.match(RE_SLUG, other).groups()
+        a1, a2 = a1.rstrip('.'), a2.rstrip('.')
+        b1, b2 = b1.lstrip('.-'), b2.lstrip('.-')
+        ret = cmp(Version(a1), Version(a2))
+        if ret == 0:
+          # 2.7.rc2 > 2.7.rc1
+          if b1 and b2:
+            return cmp(b1, b2)
+          # 2.7 > 2.7.rc1
+          return 1 if b2 else -1
+        # 2.7.1.rc2 > 2.7
+        return ret
+      except:
+        # beta > alpha
+        return cmp(str(self), str(other))
 
     for i, j in izip_longest(self._vers, other._vers, fillvalue=0):
       result = i - j
