@@ -28,7 +28,6 @@ class Version(str):
     if not hasattr(self, '_vers') or not hasattr(other, '_vers'):
       # slug match
       try:
-        print 'MMM'
         a1, b1 = re.match(RE_SLUG, self).groups()
         a2, b2 = re.match(RE_SLUG, other).groups()
         a1, a2 = a1.rstrip('.'), a2.rstrip('.')
