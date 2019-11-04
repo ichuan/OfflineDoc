@@ -22,7 +22,7 @@ setup(
   long_description=open('README.md').read(),
   install_requires=[
     'Jinja2==2.6',
-    'PyYAML==3.10',
+    'PyYAML==5.1',
     'Pygments==1.6',
     'Sphinx==1.1.3',
     'docutils==0.10',
