@@ -21,7 +21,7 @@ setup(
   description='Offline documents generating tool',
   long_description=open('README.md').read(),
   install_requires=[
-    'Jinja2==2.6',
+    'Jinja2==2.11.3',
     'PyYAML==3.10',
     'Pygments==1.6',
     'Sphinx==1.1.3',
